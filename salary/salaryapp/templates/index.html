@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body style="margin-top: 30px;margin-left: 30px;text-align:center;">
+<div container-fluid style="background-color:lightgreen" ;>
+    <div style=" display:flex; justify-content:center; align-items:center">
+        <form action=" " method="post" enctype="multipart/form-data"
+              style="background-color:white;border: 1px solid black; padding: 50px;"> {% csrf_token %}
+            <input type="file" title="Upload excel file" name="excel_file"
+                   style="border: 1px solid black; padding: 5px;" required="required"><br><br>
+            Enter new ctc to calculate salary components using this system of %  :
+            <input type="number" placeholder="CTC" name="ctc"><br>
+            <input type="submit" value="Upload"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+        </form>
+        <!--    {% for row in excel_data %}-->
+        <!--        {% for cell in row %}-->
+        <!--            {{ cell }}-->
+        <!--        {% endfor %}-->
+        <!--        <br>-->
+        <!--    {% endfor %}-->
+    </div>
+</div>
+<br><br>
+<hr>
+<br><br>
+<div>
+    <h4>The data shown below has been fetched from the excel sheet uploaded by the user. It contains a list of all the
+        components that make up the salary (CTC) . </h4>
+    {% for j in mylist %}
+    <div style= "display:flex; justify-content:center; align-items:center" >
+        <div style="float:left;width:200px;text-align:left">
+            {% for i in j.keys %}
+            <div >
+                {{ i }}<br>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div style="float:left;width:300px;text-align:left">
+            {% for i in j.values %}
+            <div >
+                {{ i }}<br>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% endfor %}
+
+        {% for j in mylist1 %}
+    <div style= "display:flex; justify-content:center; align-items:center" >
+        <div style="float:left;width:200px;text-align:left">
+            {% for i in j.keys %}
+            <div >
+                {{ i }}<br>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div style="float:left;width:300px;text-align:left">
+            {% for i in j.values %}
+            <div >
+                {{ i }}<br>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% endfor %}
+
+
+        <br>
+        <!--<a href="">click here to view result</a>-->
+    </div>
+
+</div>
+</body>
+</html>
+
+
+<!--<br>-->
+<!--    <form request="post">{% csrf_token %}-->
+
+<!--    <input type="submit" value="get result">-->
+<!--    </form>-->
+<!--    {% for i in mi %}-->
+<!--        {{ i }}-->
+<!--    {% endfor %}-->
